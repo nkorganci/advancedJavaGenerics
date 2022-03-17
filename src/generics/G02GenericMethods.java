@@ -5,21 +5,36 @@ import java.util.Arrays;
 public class G02GenericMethods {
     public static void main(String[] args) {
 
-        Integer[] integerDizi = {1, 2, 3, 4, 5, 6};
-        Double[] doubleDizi = {1.1, 2.2, 3.3, 4.4, 5.5, 6.6, 7.7};
-        Character[] charDizi = {'H', 'E', 'L', 'L', 'O'};
+        Integer[] integerDizi = { 1, 2, 3, 4, 5, 6 };
+        Double[] doubleDizi = { 1.1, 2.2, 3.3, 4.4, 5.5, 6.6, 7.7 };
+        Character[] charDizi = { 'H', 'E', 'L', 'L', 'O' };
 
         System.out.println("Integer Dizi:");
-        diziYazdir(integerDizi);
+        diziYazdır(integerDizi);
         System.out.println("Double Dizi:");
-        diziYazdir(doubleDizi);
+        diziYazdır(doubleDizi);
         System.out.println("Karakter Dizisi:");
-        diziYazdir(charDizi);
+        diziYazdır(charDizi);
+
+        System.out.println("**********************");
+        System.out.println("MAKS: " + maksBulKlasik(3,7,5));
+        System.out.println("MAKS: " + maksBulKlasik(10,3,4));
+        System.out.println("MAKS: " + maksBulKlasik(5,4,14));
+
+        System.out.println("**********************");
+        System.out.println("MAKS: " + maksBulGeneric(3,7,5));
+        System.out.println("MAKS: " + maksBulGeneric(10.4,3.5,4.6));
+        System.out.println("MAKS: " + maksBulGeneric("5","4","14"));
+        System.out.println("MAKS: " + maksBulGeneric(1f,3.4f,4.6f));
     }
 
-    public static <T>void diziYazdir(T[] dizi){
-        Arrays.stream(dizi).forEach(System.out::println);
-    }
+    // - Bir jenerik metot tanımlanırken metodun dönüş tipinin önüne < T > (angle brackets) konulur.
+    // - T (Type) kullanılan parametrik veri tipini göstermektedir
+    // - Ayrıca, parametre listesinde parametre tipleri kullanılır.
+    // - Bu parametre listeleri bir veya daha fazla olabilir ve virgülle ayrılarak yazılırlar.
+    // - Parametre tipleri non-primitif olmalıdır.
+    // - Aslında derleyici, derleme aşamasında generic metotudu java byte kodlara çevirirken parametre tiplerini
+    //   kaldırır ve yerine gerçek parametreleri koyar. Bu prosese erasure denilir.
 
     // Generic metot tanımlamasi
     public static <T> void diziYazdır(T[] dizi){
@@ -38,5 +53,24 @@ public class G02GenericMethods {
         }
         return maks;
     }
+
+
+    // - Generic veri tipleri sadece non-primitif olabilir.
+    // - Binary operatörler (+, -,*, / ,<, >) ise non-primitif veri tiplerinde kullanılamazlar.
+    // - Dolayısıyla bir generic metotta karşılaştırma için ne kullanılabilir?
+    // - CEVAP: Comparable interface’i kullanımı
+
+    public static < T extends Comparable<T>  > T maksBulGeneric(T x, T y, T z){
+        T maks = x;
+        if(y.compareTo(maks) > 0 ){
+            maks = y;
+        }
+        if(z.compareTo(maks) > 0 ){
+            maks = z;
+        }
+        return maks;
+    }
+
+
 
 }

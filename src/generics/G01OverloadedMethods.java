@@ -27,7 +27,7 @@ public class G01OverloadedMethods {
 
     }
 
-    // Overloaded diziYazdir methodlari
+    // 1 Overloaded diziYazdir methodlari
     public static void diziYazdır(Integer[] dizi) {
         Arrays.stream(dizi).forEach(System.out::println);
     }
@@ -40,7 +40,7 @@ public class G01OverloadedMethods {
         Arrays.stream(dizi).forEach(System.out::println);
     }
 
-    // SuperClass(Object) ile diziYazdir
+    // 2 SuperClass(Object) ile diziYazdir, ama bilgi alma durumlarinda casting yapilmasi gerekiyor
     public static void diziYazdirObject(Object [] obj) {
         Arrays.stream(obj).forEach(System.out::println);
     }
