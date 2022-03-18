@@ -5,7 +5,6 @@ public class G04GenericSinif<T> {
     private T veri;
 
     G04GenericSinif(){
-
     }
 
     G04GenericSinif(T veri){
