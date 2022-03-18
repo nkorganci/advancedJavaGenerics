@@ -10,7 +10,7 @@ public class MultipleClass {
         //Calling generic method
         VeriYazdir.yazdir(2);
         VeriYazdir.yazdir("Hello");
-
+        VeriYazdir.yazdir(str.getVeri());
 
     }
 }
