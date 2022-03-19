@@ -5,7 +5,7 @@ package InnerOuterClass;
     Purpose of classes will be categorized
     If you want to reach to a class variable, you should start from the outer to inner.
  */
-public class G05OuterInnerCl {
+public class OuterInnerCl {
 
 class inner1{
 
