@@ -66,6 +66,14 @@ public class OuterClass {
         //Only if the local variables are final or "effectively final" can be reachable.
 
         //4 Anonymous class
+        Object a = new Object(){
+            //override method
+            @Override
+            public String toString(){
+                return "Hello";
+            }
+        };
+        System.out.println(a);
     }
 
 }
