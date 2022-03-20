@@ -10,8 +10,11 @@ public class L01Main {
 
     public static void main(String[] args) {
 
-        L02OutIn obj = new L02OutIn();
-        obj.run();
+        L02OutInNonStatic obj = new L02OutInNonStatic();// Outer class
+        obj.run(); //Outer class method
+
+        L02OutInNonStatic.In inClass = obj.new In();  // To create an inner object instance.
+        inClass.run();// Inner class run() method.
 
     }
 }
