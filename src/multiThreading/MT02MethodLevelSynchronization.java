@@ -39,7 +39,6 @@ class Counter{
 
         }
     }
-    // Method level synchronization will not effect other methods
     public static void x(){
 
     }
